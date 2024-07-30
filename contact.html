@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Contact Us</title>
+	<link rel="stylesheet" href="./contact.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+	<nav>
+		<div class="nav_con">
+			<div class="logo"><img src="./assets/logo3-removebg.png" alt=""></div>
+			<label for="check">
+				<i class="fa fa-bars" aria-hidden="true"></i>
+			</label>
+			<input type="checkbox" id="check">
+			<ul>
+				<li><a href="./index.html">Home</a></li>
+				<li><a href="./about_us.html">About Us</a></li>
+				<li><a href="#">Contact Us</a></li>
+			</ul>
+		</div>
+	</nav>
+	<div class="contact">
+		<div class="contact_info">
+			<h1>Contact Us</h1>
+			<p>We're here to help and answer any questions you <br>
+			might have. We look forward to hearing from you!</p>
+			<p><i class="fa-solid fa-location-dot"></i> Lorem ipsum dolor</p>
+			<p><i class="fa-solid fa-phone"></i> +45 71 99 77 07</p>
+			<p><i class="fa-solid fa-envelope"></i> adventuretime@gmail.com</p>
+		</div>
+		<form action="" id="contactForm">
+			<h3>SEND MESSAGE</h3>
+			<input id="username" type="text" placeholder="Your name*"> <br>
+			<input id="email" type="email" placeholder="Email*"><br>
+			<input id="phone" type="number" placeholder="Phn no*"><br>
+			<textarea id="message" name="" placeholder="Message"></textarea>
+			<button class="btn" type="submit">SEND</button>
+		</form>
+	</div>
+	<div class="footer">
+        <div class="social">
+            <h3>Follow us on</h3>
+            <a href=""><i class="fa-brands fa-facebook"></i></a>
+            <a href=""><i class="fa-brands fa-instagram"></i></a>
+            <a href=""><i class="fa-brands fa-x-twitter"></i></a>
+        </div>
+        <p>Copyright &copy; 2024 Adventure Time</p>
+    </div>
+
+
+	<script>
+		const form = document.getElementById('contactForm');
+		const name = document.getElementById('username').value;
+		const emailInput = document.getElementById('email');
+		const phoneInput = document.getElementById('phone');
+		const messageInput = document.getElementById('message');
+
+		const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9._]+\.[a-zA-Z]{2,}$/;
+		const phoneRegex = /^\d{10}$/;
+
+		form.addEventListener('submit', (e) => {
+			e.preventDefault();
+
+			const emailValue = emailInput.value.trim();
+			const phoneValue = phoneInput.value.trim();
+			const messageValue = messageInput.value.trim();
+
+			if (!emailRegex.test(emailValue)) {
+				alert("Enter a valid email");
+				return;
+			}
+
+			if (!phoneRegex.test(phoneValue)) {
+				alert("Enter a valid phone number");
+				return;
+			}
+
+			if (messageValue === '') {
+				alert("Please enter a message");
+				return;
+			}
+			alert("Form submitted successfully!");
+			form.reset();
+		});
+	</script>
+</body>
+</html>
